@@ -12,7 +12,7 @@ function App() {
 
 			<section className='max-w-[90rem] mx-auto px-4 sm:px-6 md:px-8 '>
 				<LeftSideNavbar />
-				<div className='lg:pl-[14rem]  mt-[5.8125rem]'>
+				<div className='lg:pl-[14rem] mt-[5.8125rem]'>
 					<Outlet />
 				</div>
 			</section>
