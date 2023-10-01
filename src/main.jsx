@@ -5,6 +5,7 @@ import App from './App.jsx';
 import './index.css';
 import Home from './pages/Home/Home.jsx';
 import AddJob from './pages/AddJob/AddJob.jsx';
+import EditJob from './pages/EditJob/EditJob.jsx';
 
 const routes = createBrowserRouter([
 	{
@@ -18,6 +19,10 @@ const routes = createBrowserRouter([
 			{
 				path: '/addJob',
 				element: <AddJob />,
+			},
+			{
+				path: '/editJob',
+				element: <EditJob />,
 			},
 		],
 	},
