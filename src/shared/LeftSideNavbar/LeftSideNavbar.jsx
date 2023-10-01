@@ -16,7 +16,7 @@ export default function LeftSideNavbar() {
 								className='sub-menu'
 								href='/jobs/internship'
 								id='lws-internship-menu'>
-								<i className='fa-solid fa-stop !text-[#FF5757]'></i>
+								<i className='fa-solid fa-stop !text-[#FF5757]'></i>{' '}
 								Internship
 							</a>
 						</li>
@@ -25,7 +25,7 @@ export default function LeftSideNavbar() {
 								className='sub-menu'
 								href='/jobs/fulltime'
 								id='lws-fulltime-menu'>
-								<i className='fa-solid fa-stop !text-[#FF8A00]'></i>
+								<i className='fa-solid fa-stop !text-[#FF8A00]'></i>{' '}
 								Full Time
 							</a>
 						</li>
@@ -34,7 +34,7 @@ export default function LeftSideNavbar() {
 								className='sub-menu'
 								href='/jobs/remote'
 								id='lws-remote-menu'>
-								<i className='fa-solid fa-stop !text-[#56E5C4]'></i>
+								<i className='fa-solid fa-stop !text-[#56E5C4]'></i>{' '}
 								Remote
 							</a>
 						</li>
@@ -43,7 +43,7 @@ export default function LeftSideNavbar() {
 				<li>
 					<a href='/jobs' className='main-menu' id='lws-addJob-menu'>
 						<i className='fa-solid fa-file-circle-plus'></i>
-						<span>Add NewJob</span>
+						<span> Add NewJob</span>
 					</a>
 				</li>
 			</ul>

@@ -1,10 +1,12 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { addJob } from '../../features/jobs/jobsSlice';
 
 export default function AddJob() {
 	// ! Required hooks and variables
 	const dispatch = useDispatch();
+	const navigate = useNavigate();
 
 	const [title, setTitle] = useState('');
 	const [type, setType] = useState('');
@@ -17,6 +19,7 @@ export default function AddJob() {
 		const data = { title, type, salary, deadline };
 
 		dispatch(addJob(data));
+		navigate('/');
 	};
 
 	return (

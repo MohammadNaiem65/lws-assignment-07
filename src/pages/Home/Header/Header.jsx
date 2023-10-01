@@ -17,7 +17,7 @@ export default function Header() {
 					id='lws-sort'
 					name='sort'
 					autoComplete='sort'
-					className='px-2 flex-1'>
+					className='px-2 flex-1 text-slate-300'>
 					<option>Default</option>
 					<option>Salary (Low to High)</option>
 					<option>Salary (High to Low)</option>

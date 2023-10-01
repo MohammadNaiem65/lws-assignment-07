@@ -5,3 +5,9 @@ export const createJob = async (data) => {
 
 	return res.data;
 };
+
+export const readJobs = async () => {
+	const res = await axiosInstance.get('/jobs');
+
+	return res.data;
+};
