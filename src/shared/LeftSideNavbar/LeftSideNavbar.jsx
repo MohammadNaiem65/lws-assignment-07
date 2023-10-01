@@ -1,49 +1,63 @@
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { filterByType } from '../../features/filter/filterSlice';
 
 export default function LeftSideNavbar() {
+	// ! Required hooks and variables
+	const dispatch = useDispatch();
+
+	const handleFilterByType = (type) => {
+		dispatch(filterByType(type));
+	};
+
 	return (
 		<aside className='sidebar'>
 			<ul className='space-y-4'>
 				<li>
-					<a
-						href='/jobs'
+					<button
 						className='main-menu menu-active'
-						id='lws-alljobs-menu'>
+						id='lws-alljobs-menu'
+						onClick={() => handleFilterByType('All')}>
 						<i className='fa-solid fa-briefcase'></i>
-						<Link to='/'> All Available Jobs</Link>
-					</a>
+						<span> All Available Jobs</span>
+					</button>
 					<ul className='space-y-6 lg:space-y-2 '>
 						<li>
-							<a
+							<button
 								className='sub-menu'
-								href='/jobs/internship'
-								id='lws-internship-menu'>
+								id='lws-internship-menu'
+								onClick={() =>
+									handleFilterByType('Internship')
+								}>
 								<i className='fa-solid fa-stop !text-[#FF5757]'></i>{' '}
 								Internship
-							</a>
+							</button>
 						</li>
 						<li>
-							<a
+							<button
 								className='sub-menu'
-								href='/jobs/fulltime'
-								id='lws-fulltime-menu'>
+								id='lws-fulltime-menu'
+								onClick={() => handleFilterByType('FullTime')}>
 								<i className='fa-solid fa-stop !text-[#FF8A00]'></i>{' '}
 								Full Time
-							</a>
+							</button>
 						</li>
 						<li>
-							<a
+							<button
 								className='sub-menu'
-								href='/jobs/remote'
-								id='lws-remote-menu'>
+								id='lws-remote-menu'
+								onClick={() => handleFilterByType('Remote')}>
 								<i className='fa-solid fa-stop !text-[#56E5C4]'></i>{' '}
 								Remote
-							</a>
+							</button>
 						</li>
 					</ul>
 				</li>
 				<li>
-					<Link to='/addJob' className='main-menu' id='lws-addJob-menu'>
+					<Link
+						to='/addJob'
+						className='main-menu'
+						id='lws-addJob-menu'>
 						<i className='fa-solid fa-file-circle-plus'></i>
 						<span> Add NewJob</span>
 					</Link>
