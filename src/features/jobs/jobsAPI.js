@@ -11,3 +11,9 @@ export const readJobs = async () => {
 
 	return res.data;
 };
+
+export const updateJob = async (id, data) => {
+	const res = await axiosInstance.patch(`/jobs/${id}`, data);
+
+	return res.data;
+};

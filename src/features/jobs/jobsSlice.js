@@ -1,9 +1,10 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { createJob, readJobs } from './jobsAPI';
+import { createJob, readJobs, updateJob } from './jobsAPI';
 
 // initial state
 const initialState = {
 	jobs: [],
+	editingJobDetails: {},
 	isLoading: false,
 	isError: false,
 	error: '',
@@ -22,10 +23,24 @@ export const getJobs = createAsyncThunk('jobs/getJobs', async () => {
 	return jobs;
 });
 
+export const editJob = createAsyncThunk(
+	'jobs/editJob',
+	async ({ id, data }) => {
+		const updatedData = await updateJob(id, data);
+
+		return updatedData;
+	}
+);
+
 // create jobs slice
 const jobSlice = createSlice({
 	name: 'jobs',
 	initialState,
+	reducers: {
+		addEditingJobDetails: (state, action) => {
+			state.editingJobDetails = action.payload;
+		},
+	},
 	extraReducers: (builder) => {
 		// add job
 		builder
@@ -60,7 +75,29 @@ const jobSlice = createSlice({
 				state.isError = true;
 				state.error = action.error.message;
 			});
+
+		// edit job
+		builder
+			.addCase(editJob.pending, (state) => {
+				state.isError = false;
+				state.isLoading = true;
+			})
+			.addCase(editJob.fulfilled, (state, action) => {
+				state.isLoading = false;
+
+				const index = state.jobs.findIndex(
+					(job) => job.id === action.payload.id
+				);
+				state.jobs[index] = action.payload;
+			})
+			.addCase(editJob.rejected, (state, action) => {
+				state.isLoading = false;
+				state.jobs = [];
+				state.isError = true;
+				state.error = action.error.message;
+			});
 	},
 });
 
 export default jobSlice.reducer;
+export const { addEditingJobDetails } = jobSlice.actions;

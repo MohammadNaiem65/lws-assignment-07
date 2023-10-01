@@ -1,6 +1,17 @@
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { addEditingJobDetails } from '../../../features/jobs/jobsSlice';
+
 export default function Job({ job }) {
 	// ! Required variables
+	const dispatch = useDispatch();
+	const navigate = useNavigate();
 	const { title, type, salary, deadline, id } = job;
+
+	const handleEditJob = () => {
+		dispatch(addEditingJobDetails(job));
+        navigate('/editJob')
+	};
 
 	return (
 		<div className='lws-single-job'>
@@ -31,7 +42,10 @@ export default function Job({ job }) {
 			</div>
 			<div className='mt-5 flex lg:mt-0 lg:ml-4'>
 				<span className='hidden sm:block'>
-					<button type='button' className='lws-edit btn btn-primary'>
+					<button
+						type='button'
+						className='lws-edit btn btn-primary'
+						onClick={handleEditJob}>
 						<i className='fa-solid fa-pen text-gray-300 -ml-1 mr-2'></i>
 						Edit
 					</button>

@@ -1,9 +1,9 @@
 {
   "jobs": [
     {
-      "title": "DevOps Engineer",
+      "title": "IOS App Developer",
       "type": "Internship",
-      "salary": "25002",
+      "salary": "12345",
       "deadline": "2024-12-31",
       "id": 2
     },
@@ -42,12 +42,6 @@
       "deadline": "2023-12-31",
       "id": 7
     },
-    [
-      "MERN Stack Developer",
-      "Remote",
-      "50000",
-      "2023-10-10"
-    ],
     {
       "title": "MERN Stack Developer",
       "type": "Remote",
