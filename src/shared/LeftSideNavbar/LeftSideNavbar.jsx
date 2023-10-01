@@ -1,5 +1,7 @@
+import { Link } from 'react-router-dom';
+
 export default function LeftSideNavbar() {
-    return (
+	return (
 		<aside className='sidebar'>
 			<ul className='space-y-4'>
 				<li>
@@ -8,7 +10,7 @@ export default function LeftSideNavbar() {
 						className='main-menu menu-active'
 						id='lws-alljobs-menu'>
 						<i className='fa-solid fa-briefcase'></i>
-						<span> All Available Jobs</span>
+						<Link to='/'> All Available Jobs</Link>
 					</a>
 					<ul className='space-y-6 lg:space-y-2 '>
 						<li>
@@ -41,10 +43,10 @@ export default function LeftSideNavbar() {
 					</ul>
 				</li>
 				<li>
-					<a href='/jobs' className='main-menu' id='lws-addJob-menu'>
+					<Link to='/addJob' className='main-menu' id='lws-addJob-menu'>
 						<i className='fa-solid fa-file-circle-plus'></i>
 						<span> Add NewJob</span>
-					</a>
+					</Link>
 				</li>
 			</ul>
 		</aside>

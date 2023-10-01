@@ -1,6 +1,9 @@
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { addEditingJobDetails } from '../../../features/jobs/jobsSlice';
+import {
+	addEditingJobDetails,
+	removeJob,
+} from '../../../features/jobs/jobsSlice';
 
 export default function Job({ job }) {
 	// ! Required variables
@@ -10,7 +13,11 @@ export default function Job({ job }) {
 
 	const handleEditJob = () => {
 		dispatch(addEditingJobDetails(job));
-        navigate('/editJob')
+		navigate('/editJob');
+	};
+
+	const handleDeleteJob = () => {
+		dispatch(removeJob(id));
 	};
 
 	return (
@@ -44,7 +51,7 @@ export default function Job({ job }) {
 				<span className='hidden sm:block'>
 					<button
 						type='button'
-						className='lws-edit btn btn-primary'
+						className='lws-edit btn btn-primary hover:bg-blue-400'
 						onClick={handleEditJob}>
 						<i className='fa-solid fa-pen text-gray-300 -ml-1 mr-2'></i>
 						Edit
@@ -54,7 +61,8 @@ export default function Job({ job }) {
 				<span className='sm:ml-3'>
 					<button
 						type='button'
-						className='lws-delete btn btn-danger '>
+						className='lws-delete btn btn-danger '
+						onClick={handleDeleteJob}>
 						<i className='fa-solid fa-trash text-gray-300 -ml-1 mr-2'></i>
 						Delete
 					</button>

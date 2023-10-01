@@ -1,13 +1,6 @@
 {
   "jobs": [
     {
-      "title": "IOS App Developer",
-      "type": "Internship",
-      "salary": "12345",
-      "deadline": "2024-12-31",
-      "id": 2
-    },
-    {
       "title": "QA Engineer",
       "type": "Full Time",
       "salary": "15000",
