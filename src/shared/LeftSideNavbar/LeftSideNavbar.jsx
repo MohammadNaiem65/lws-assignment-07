@@ -1,10 +1,14 @@
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { filterByType } from '../../features/filter/filterSlice';
+import { filterByType, resetFilter } from '../../features/filter/filterSlice';
 
 export default function LeftSideNavbar() {
 	// ! Required hooks and variables
 	const dispatch = useDispatch();
+
+	const handleResetFilter = () => {
+		dispatch(resetFilter());
+	};
 
 	const handleFilterByType = (type) => {
 		dispatch(filterByType(type));
@@ -17,7 +21,7 @@ export default function LeftSideNavbar() {
 					<button
 						className='main-menu menu-active'
 						id='lws-alljobs-menu'
-						onClick={() => handleFilterByType('All')}>
+						onClick={handleResetFilter}>
 						<i className='fa-solid fa-briefcase'></i>
 						<span> All Available Jobs</span>
 					</button>
@@ -37,7 +41,7 @@ export default function LeftSideNavbar() {
 							<button
 								className='sub-menu'
 								id='lws-fulltime-menu'
-								onClick={() => handleFilterByType('FullTime')}>
+								onClick={() => handleFilterByType('Full Time')}>
 								<i className='fa-solid fa-stop !text-[#FF8A00]'></i>{' '}
 								Full Time
 							</button>

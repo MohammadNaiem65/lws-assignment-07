@@ -21,9 +21,14 @@ const filterSlice = createSlice({
 		filterBySalary: (state, action) => {
 			state.salary = action.payload;
 		},
+		resetFilter: (state) => {
+			state.title = '';
+			state.type = 'All';
+			state.salary = 'Default';
+		},
 	},
 });
 
 export default filterSlice.reducer;
-export const { filterByTitle, filterByType, filterBySalary } =
+export const { filterByTitle, filterByType, filterBySalary, resetFilter } =
 	filterSlice.actions;
